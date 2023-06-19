@@ -1,5 +1,6 @@
 @use "assets/styles/common" as *;
 @use "assets/styles/main.scss" as *;
 
-.App {
+body {
+  background: $color-gradient-lightred;
 }

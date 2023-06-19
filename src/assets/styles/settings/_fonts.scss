@@ -1,0 +1,8 @@
+/* This is an example file 
+Please replace the content according to your design system */
+
+@use "./font-weights" as *;
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@300;600&family=Ubuntu:wght@400;500;700&display=swap');
+
+$font-family-overpass: "Overpass", sans-serif;
+$font-family-ubuntu: "Ubuntu", sans-serif;
