@@ -6,5 +6,6 @@ export interface InputProps {
   min?: number;
   max?: number;
   maxLength?: number;
+  ariaLabel?: string;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }

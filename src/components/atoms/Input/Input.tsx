@@ -9,6 +9,7 @@ const Input: FC<InputProps> = ({
   min,
   max,
   maxLength,
+  ariaLabel,
   onChange,
 }) => {
   return (
@@ -18,6 +19,7 @@ const Input: FC<InputProps> = ({
       min={min}
       max={max}
       maxLength={maxLength}
+      aria-label={ariaLabel}
       onChange={onChange}
       className={`${className}`}
       style={style}
