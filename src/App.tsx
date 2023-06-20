@@ -7,6 +7,7 @@ import "./App.scss";
 function App() {
   const [inputValue, setInputValue] = useState<string>("");
   const [toDos, setToDos] = useState<string[]>([]);
+  const [selectedOption, setSelectedOption] = useState<String>("All");
 
   return (
     <div className="App flex flex--column flex__justify--center flex__align--center">
@@ -16,8 +17,9 @@ function App() {
         setInputValue={setInputValue}
         toDos={toDos}
         setToDos={setToDos}
+        setSelectedOption={setSelectedOption}
       />
-      <ToDoList toDos={toDos} />
+      <ToDoList toDos={toDos} selectedOption={selectedOption} />
     </div>
   );
 }
