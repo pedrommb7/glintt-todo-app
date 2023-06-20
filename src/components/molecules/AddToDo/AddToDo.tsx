@@ -1,18 +1,15 @@
-import React, { FormEvent } from "react";
+import React, { FormEvent, FC } from "react";
 import Input from "../../atoms/Input/Input";
 import Button from "../../atoms/Button/Button";
 import Select from "../../atoms/Select/Select";
+import { AddToDoProps } from "./types";
 
-const AddToDo = ({
+const AddToDo: FC<AddToDoProps> = ({
   setInputValue,
   inputValue,
   toDos,
   setToDos,
-}: {
-  setInputValue: (value: string) => void;
-  inputValue: string;
-  setToDos: (value: string[]) => void;
-  toDos: string[];
+  setSelectedOption,
 }) => {
   const handleToDo = (event: FormEvent) => {
     event?.preventDefault();
@@ -23,18 +20,27 @@ const AddToDo = ({
   };
 
   return (
-    <form className="flex mt--24">
+    <form className="flex mt--24 mb--8">
       <div className="mr--8">
         <Input
           type={"text"}
           placeholder="Add todo..."
           onChange={(event) => setInputValue(event.target.value)}
+          className="mr--4"
+          ariaLabel="Add Todo"
         />
-        <Button children={"Add"} onClick={handleToDo} />
+        <Button
+          children={"Add"}
+          onClick={handleToDo}
+          className="mr--24"
+          ariaLabel="Add Todo"
+        />
       </div>
       <Select
         name="Select filter"
         options={["All", "Completed", "Uncompleted"]}
+        onChange={(event) => setSelectedOption(event.target.value)}
+        ariaLabel="Select a filter to apply"
       />
     </form>
   );

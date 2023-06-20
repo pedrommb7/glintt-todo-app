@@ -1,20 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, FC } from "react";
 import "./_todolist.scss";
+import { ToDoListProps } from "./types";
 
-const ToDoList = ({ toDos }: { toDos: string[] }) => {
-  const [clickedItem, setClickedItem] = useState<boolean>(false);
+const ToDoList: FC<ToDoListProps> = ({ toDos, selectedOption }) => {
+  const [clickedItem, setClickedItem] = useState<number[]>([]);
+
+  const handleClick = (id: number) => {
+    setClickedItem((prevClickedItem) =>
+      prevClickedItem.includes(id)
+        ? prevClickedItem.filter((item) => item !== id)
+        : [...prevClickedItem, id]
+    );
+  };
 
   return (
     <ul className="todolist">
-      {toDos.map((toDo: string, id: number) => (
-        <li
-          key={id}
-          className={`px--64 py--4 mb--8 ${clickedItem ? "clicked" : ""}`}
-          onClick={() => setClickedItem(true)}
-        >
-          {toDo}
-        </li>
-      ))}
+      {toDos.map((toDo: string, id: number) => {
+        if (
+          selectedOption === "All" ||
+          (selectedOption === "Completed" && clickedItem.includes(id)) ||
+          (selectedOption === "Uncompleted" && !clickedItem.includes(id))
+        ) {
+          return (
+            <li
+              key={id}
+              className={`px--64 py--4 mb--8 ${
+                clickedItem.includes(id) ? "clicked" : ""
+              }`}
+              onClick={() => handleClick(id)}
+            >
+              {toDo}
+            </li>
+          );
+        }
+        return null;
+      })}
     </ul>
   );
 };
