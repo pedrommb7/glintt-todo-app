@@ -24,7 +24,7 @@ const ToDoList: FC<ToDoListProps> = ({ toDos, selectedOption }) => {
           return (
             <li
               key={id}
-              className={`px--64 py--4 mb--8 ${
+              className={`text-align--center px--64 py--4 mb--8 ${
                 clickedItem.includes(id) ? "clicked" : ""
               }`}
               onClick={() => handleClick(id)}
