@@ -2,6 +2,7 @@ import React, { FormEvent, FC } from "react";
 import Input from "../../atoms/Input/Input";
 import Button from "../../atoms/Button/Button";
 import Select from "../../atoms/Select/Select";
+import Form from "../../atoms/Form/Form";
 import { AddToDoProps } from "./types";
 
 const AddToDo: FC<AddToDoProps> = ({
@@ -20,7 +21,7 @@ const AddToDo: FC<AddToDoProps> = ({
   };
 
   return (
-    <form className="flex mt--24 mb--8">
+    <Form id={"addToDos-form"} className="flex mt--24 mb--8">
       <div className="mr--8">
         <Input
           type={"text"}
@@ -42,7 +43,7 @@ const AddToDo: FC<AddToDoProps> = ({
         onChange={(event) => setSelectedOption(event.target.value)}
         ariaLabel="Select a filter to apply"
       />
-    </form>
+    </Form>
   );
 };
 
