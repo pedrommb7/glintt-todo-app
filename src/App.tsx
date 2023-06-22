@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Heading from "./components/atoms/Heading/Heading";
 import AddToDo from "./components/molecules/AddToDo/AddToDo";
 import ToDoList from "./components/molecules/ToDoList/ToDoList";
-import "./App.scss";
 
 function App() {
   const [inputValue, setInputValue] = useState<string>("");
