@@ -1,6 +1,6 @@
 import React, { useState, FC } from "react";
-import "./_todolist.scss";
 import { ToDoListProps } from "./types";
+import "./_todolist.scss";
 
 const ToDoList: FC<ToDoListProps> = ({ toDos, selectedOption }) => {
   const [clickedItem, setClickedItem] = useState<number[]>([]);
